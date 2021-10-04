@@ -9,9 +9,9 @@ Version:1.0
 [ CSS Table of contents ]
 01. Preloader CSS
 02. Header CSS
-	+ Logo
-	+ Category Menu
-	+ Main Menu
+    + Logo
+    + Category Menu
+    + Main Menu
 03. Hero Area CSS
 04. Small Banner CSS
 05. Medium Banner CSS
@@ -27,10 +27,10 @@ Version:1.0
 15. Newslatter CSS
 16. About Us CSS
 17. Team CSS
-18. Blog CSS	
-	+ Blog Archive
-	+ Blog Sidebar
-	+ Blog Single
+18. Blog CSS    
+    + Blog Archive
+    + Blog Sidebar
+    + Blog Single
 19. Contact CSS
 20. 404 Error CSS
 21. Footer CSS
@@ -268,7 +268,7 @@ Version:1.0
 }
 
 /*======================================
-	01. Header CSS
+    01. Header CSS
 ========================================*/
 /* Topbar */
 .topbar {
@@ -1462,7 +1462,7 @@ Version:1.0
 }
 
 /*======================================
-	End Header CSS
+    End Header CSS
 ========================================*/
 
 /*======================================
@@ -4234,7 +4234,7 @@ Version:1.0
 }
 
 /*======================================
-	End Login CSS
+    End Login CSS
 ========================================*/
 
 /*======================================
@@ -4359,7 +4359,7 @@ Version:1.0
 ========================================*/
 
 /*=============================
-	Start Cowndown CSS
+    Start Cowndown CSS
 ===============================*/
 .cown-down {
     position: relative;
@@ -4456,7 +4456,7 @@ Version:1.0
 }
 
 /*=============================
-	End Cowndown CSS
+    End Cowndown CSS
 ===============================*/
 
 /*======================================
@@ -4592,7 +4592,7 @@ Version:1.0
 ========================================*/
 
 /*=============================
-	About US CSS
+    About US CSS
 ===============================*/
 .about-us {
     background: #fff;
@@ -4736,7 +4736,7 @@ Version:1.0
 }
 
 /*=============================
-	End About US CSS
+    End About US CSS
 ===============================*/
 
 /*======================================
@@ -5686,7 +5686,7 @@ Version:1.0
 }
 
 /*=============================
-	Start 404 Error CSS
+    Start 404 Error CSS
 ===============================*/
 .error-page {
     background: #fff;
@@ -5754,7 +5754,7 @@ Version:1.0
 }
 
 /*=============================
-	/End 404 Error CSS
+    /End 404 Error CSS
 ===============================*/
 
 .free-version-banner {
@@ -5796,7 +5796,7 @@ Version:1.0
 }
 
 /*=============================
-	20. Start Footer CSS
+    20. Start Footer CSS
 ===============================*/
 .footer {
     background: #222;
@@ -5966,6 +5966,63 @@ ul.login_register li {
     margin-right: 5px;
 }
 
+.right-bar .sinlge-bar.dropdown .social_avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+
+.btn-facebook {
+    margin-top: 10px;
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-google {
+    margin-top: 10px;
+    color: #fff;
+    background-color: #DD4B39;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 5px;
+    width: 260px;
+
+}
+
+.btn-submit {
+    width: 260px;
+
+    border-radius: 5px;
+}
+
+.btn-social:hover {
+    color: #eee;
+}
+
+.btn-social :first-child {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 40px;
+    padding: 7px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
 /*=============================
-	End Footer CSS
+    End Footer CSS
 ===============================*/

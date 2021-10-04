@@ -9,12 +9,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-class Customer extends Model
+class Social extends Authenticatable
 {
-    use HasFactory;
     public $timestamps = false;
-    protected $perPage = 4;
-    protected $table = 'tbl_customer';
-    protected $fillable = ['name','email','password','phone'];
-    protected $primaryKey ='id';
+    protected $fillable = [
+          'name',  'email','provider_id','avatar','provider','customer_id'
+    ];
+ 
+    protected $primaryKey = 'id';
+ 	protected $table = 'tbl_social';
+
+ 
+ 	
 }

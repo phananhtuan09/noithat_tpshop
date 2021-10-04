@@ -23,52 +23,67 @@
 		<div class="container">
 				<div class="contact-head">
 					<div class="row justify-content-center">
-						<div class="col-lg-4 col-12 ">
+						
+						<div class="col-lg-8 col-12">
 							<div class="form-main">
 								<div class="title">
-									<h4>Đăng nhập</h4>
+									<h4>Đăng ký tài khoản</h4>
 								</div>
-								<form class="form" method="post" action="{{route('shop.login')}}">
+								<form class="form" method="post" action="{{route('customer.store')}}">
 									@csrf
 									<div class="row">
-										<div class="col-12">
-											@if(Session::get('error_login'))
-												<span class="error mess-error">{{Session::get('error_login')}}</span>
-												{{session::forget('error_login')}}
-											@endif
+										<div class="col-lg-6 col-12">
 											<div class="form-group">
-												<label>Email<span>*</span></label>
-												<input name="email"   type="text" placeholder="">
-												<span class="error mess-error">{{ $errors->first('email') }}</span>
+												<label>Họ và tên<span>*</span></label>
+												<input name="name"  type="text" placeholder="Nhập họ và tên">
+												<span class="error mess-error">{{ $errors->first('name') }}</span>
 											</div>
 										</div>
-										<div class="col-12">
+										<div class="col-lg-6 col-12">
+											<div class="form-group">
+												<label>Số điện thoại<span>*</span></label>
+												<input name="phone"   onkeypress="return isNumberKey(event)" type="phone" placeholder="Nhập số điện thoại">
+												<span class="error mess-error">{{ $errors->first('phone') }}</span>
+											</div>
+										</div>
+										<div class="col-lg-6 col-12">
 											<div class="form-group">
 												<label>Mật khẩu đăng nhập<span>*</span></label>
-												<input name="password"  type="password" placeholder="">
+												<input name="password"  type="password" placeholder="Mật khẩu ">
 												<span class="error mess-error">{{ $errors->first('password') }}</span>
+											</div>	
+										</div>
+										<div class="col-lg-6 col-12">
+											<div class="form-group">
+												<label>Nhập lại mật khẩu<span>*</span></label>
+												<input name="password_confirmation" type="password" placeholder="Nhập lại mật khẩu">
+												<span class="error mess-error">{{ $errors->first('password_confirmation') }}</span>
+													@if(Session::get('error'))
+													<span class="error mess-error">{{Session::get('error')}}</span>
+													{{session::forget('error')}}
+													@endif
+											</div>	
+										</div>
+										<div class="col-lg-6 col-12">
+											<div class="form-group">
+												<label>Địa chỉ email<span>*</span></label>
+												<input name="email" type="text" placeholder="Địa chỉ email">
+												<span class="error mess-error">{{ $errors->first('email') }}</span>
+													@if(Session::get('error'))
+													<span class="error mess-error">{{Session::get('error')}}</span>
+													{{session::forget('error')}}
+													@endif
 											</div>	
 										</div>
 										<div class="col-12">
 											<div class="form-group button">
-												<button type="submit" class="btn btn-submit ">Đăng nhập</button>
-											</div>
-											<div class="form-group button">
-												<a class="btn btn-lg btn-social btn-facebook" href="{{ route('login.facebook') }}">
-											    <i class="fa fa-facebook fa-fw"></i> Đăng nhập với Facebook
-											    </a>
-											</div>
-											<div class="form-group button">
-												<a class="btn btn-lg btn-social btn-google" href="{{ route('login.google') }}">
-											    <i class="fa fa-google fa-fw"></i> Đăng nhập với Google
-											    </a>
+												<button type="submit" class="btn ">Đăng kí</button>
 											</div>
 										</div>
 									</div>
 								</form>
 							</div>
 						</div>
-						
 						
 					</div>
 				</div>
@@ -109,4 +124,3 @@
 	<!-- End Shop Newsletter -->
 	
 @endsection
-			

@@ -76,14 +76,23 @@
 								<?php
                                    $customer_id = Session::get('user_id');
                                    $customer_name = Session::get('user_name');
+                                   $customer_avatar = Session::get('user_avatar');
                                    if($customer_id!=null){
                                  ?>
 								  <a  class=" " data-toggle="dropdown" href="#">
 								  	{{$customer_name}}
+								  	<?php
+								  	if($customer_avatar){
+								  	?>
+								  	<img src="{{$customer_avatar}}" alt="{{$customer_name}}" class="social_avatar">
+								  	<?php
+								     }else{
+								  	?>
 								 	<i class="fa fa-user"></i>
+								 <?php }?>
 								 </a>
 								 <div class="dropdown-menu dropdown-menu-right">
-					            <a href="#" class="dropdown-item">Thông tin tài khoản</a>
+					            <a href="{{URL::to('/profile/'.$customer_id)}}" class="dropdown-item">Thông tin tài khoản</a>
 					            <a href="{{URL::to('/logout')}}" class="dropdown-item"> Đăng Xuất</a>
 			
         
@@ -94,7 +103,7 @@
         						<ul class="login_register">
         							<li><a href="{{route('shop.viewlogin')}}">Đăng nhập</a></li>
         							<li>/</li>
-        							<li ><a href="{{route('shop.viewlogin')}}">Đăng ký</a></li>
+        							<li ><a href="{{route('shop.viewregister')}}">Đăng ký</a></li>
         						</ul>
         						<?php
         					     }
@@ -102,12 +111,21 @@
 							
 							</div>
 							<div class="sinlge-bar shopping">
+								<?php 
+								
+								if($customer_id){
+								?>
 								<a href="{{route('cart.index')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+								<?php
+								}else{ 
+								?>
+								<a href="{{route('shop.viewlogin')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+							<?php } ?>
 								<!-- Shopping Item -->
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
 										<span>2 Items</span>
-										<a href="cart.html">View Cart</a>
+										<a href="{{route('cart.index')}}">Xem giỏ hàng</a>
 									</div>
 									<ul class="shopping-list">
 										<li>
@@ -128,7 +146,7 @@
 											<span>Total</span>
 											<span class="total-amount">$134.00</span>
 										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<a href="{{route('shop.checkout')}}" class="btn animate">Thanh toán</a>
 									</div>
 								</div>
 								<!--/ End Shopping Item -->

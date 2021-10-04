@@ -41,24 +41,41 @@ class CustomerController extends Controller
         // dd($data);
         $this->validate($request,
             [
-                'name' => 'required|max:34',
-                'phone' => 'required|max:11',
+                'name' => 'required|min:6|max:34|alpha_num',
+                'phone' => 'required|min:10|max:11|regex:/(01)[0-9]{9}/|unique:tbl_customer',
+                'email' => 'required|max:65|email:rfc,dns|unique:tbl_customer',
+                'password' => 'required|min:6|max:65|confirmed',
+                'password_confirmation' => 'required|min:6|max:65',
+
             ],
             [
-                'required' => ':attribute Không được để trống',
+
+                'required' => ':attribute không được để trống',
                 'min' => ':attribute Không được nhỏ hơn :min kí tự',
+                'max' => ':attribute Không được lớn hơn :max kí tự',
+                'unique' => ':attribute đã tồn tại',
+                'email' => 'Email không hợp lệ',
+                'alpha_num'=> ':attribute chỉ được có chữ cái và số',
+                'unique'=> ':attribute đã tồn tại',
+                'confirmed'=> 'Mật khẩu nhập lại không chính xác',
+                'regex' => ':attribute không hợp lệ'
+
+
             ],
 
             [
                 'name' => 'Tên',
                 'phone' => 'Số điện thoại',
+                'password' => 'Mật khẩu',
+                'password_confirmation' => 'Mật khẩu nhập lại',
+                'email' => 'Email',
             ]
         );
-        if($data['password'] == $data['password_enter']){
+        if($data['password'] == $data['password_confirmation']){
             $data =  array('name' => $data['name'],'phone' => $data['phone'],  'password' =>  bcrypt($data['password']),'email' => $data['email']);
             if(Customer::create($data)){
-                Session::put('user_name',$data['name']);
-                return Redirect()->route('shop.index');
+                
+                return Redirect()->route('shop.viewlogin');
             }
         }
         else{
@@ -112,4 +129,5 @@ class CustomerController extends Controller
     {
         //
     }
+    
 }

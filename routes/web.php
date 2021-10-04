@@ -35,6 +35,8 @@ Route::post('/post-contact','Client\HomeController@post_contact')->name('shop.po
 
 Route::get('/logout','Client\LoginController@logout')->name('shop.logout');
 Route::get('/login','Client\LoginController@index')->name('shop.viewlogin');
+Route::get('/register','Client\RegisterController@index')->name('shop.viewregister');
+Route::get('/profile/{profile_id}','Client\LoginController@view_profile')->name('shop.viewprofile');
 Route::POST('/login','Client\LoginController@login')->name('shop.login');
 Route::get('/checkout','Client\CartController@checkout')->name('shop.checkout');
 Route::POST('/apply-coupon','Client\CartController@apply_coupon')->name('shop.apply_coupon');
@@ -109,3 +111,11 @@ Route::group(['middleware' => 'auth'],function(){
 		});
 	});
 });
+
+// Google login
+Route::get('login/google', [App\Http\Controllers\Client\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [App\Http\Controllers\Client\LoginController::class, 'handleGoogleCallback']);
+
+// Facebook login
+Route::get('login/facebook', [App\Http\Controllers\Client\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [App\Http\Controllers\Client\LoginController::class, 'handleFacebookCallback']);
